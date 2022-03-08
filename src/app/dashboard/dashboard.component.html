@@ -1,0 +1,105 @@
+<mat-toolbar>
+  <button mat-icon-button *ngIf="sidenav.mode === 'side'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
+  </button>
+
+  Dashboard Admin
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened #sidenav="matSidenav"  [(opened)]="opened">
+
+    <img class="avatar mat-elevation-z8" src="assets/user1.png">
+
+    <h4 class="name">Ex Nom</h4>
+    <h5 class="designation">Test Sidenav</h5>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" (click)="Next()">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-button class="menu-button" (click)="Nt()">
+      <mat-icon>person</mat-icon>
+      <span>Person</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button">
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+
+    <div *ngIf="loaderService.isLoading | async" class="loader-container">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+
+    <div *ngIf="loaderService.isLoading | async" class="spin">
+      <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+      <h2>Erreur lors du chargement des données verifier votre connexion internet</h2>
+    </div>
+
+
+    <div class="content">
+      <div class="container">
+        <h2 *ngIf="articles && articles.length >= 1 && res">{{ title }}</h2>
+        <button class="btn btn-primary d-flex" (click)="toggleIsNewBadge()" style="background-color: #0dcaf0; font-size: small;">
+          <span class="material-icons" style="Color: white;">
+            {{showBadge ? 'visibility_off' : 'visibility' }}
+          </span>
+          <span class="ml-2">
+            {{ showBadge ? 'Cacher' : 'Afficher' }} nouveau
+          </span>
+        </button>
+        <hr>
+        <div class="my-2">
+          <div class="row">
+            <div class="col-md-4">
+              <span class="filter"> Filtre actuel:</span>
+              <b> {{ articleFilter }} </b>
+            </div>
+            <div class="col-md-8 form-group">
+              <input type="text" class="form-control" [(ngModel)]="articleFilter">
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3">
+          <div class="col mb-4" *ngFor="let article of filteredArticles">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-id">{{ article.id }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ article.title }}</h6>
+                <p class="card-body">{{ article.body }}</p>
+                <span class="material-icons text-white p-2 rounded-circle btn" style="background-color: #87bcf8;" (click)="detailService(article.id)">
+                  keyboard_arrow_right
+                </span>
+                <span class="badge badge-pill badge-info " *ngIf="showBadge" style="background-color: #87bcf8;">Nouveau</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<!-- Kenja no Deshi wo Nanoru Kenja 01 VOSTFR
+ -->

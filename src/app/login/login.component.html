@@ -1,0 +1,157 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-5">
+  <div class="bg-gris">
+    <!--<img src="assets/img14.jpg" alt="background">-->
+
+    <div class="card">
+      <div class="card-header text-white text-center bg-purple">
+        <h3>S'enregistrer</h3>
+      </div>
+      <div class="card-body">
+        <form novalidate (ngSubmit)="saveData(registerForm)" #registerForm="ngForm">
+
+          <div class="form row text-white">
+            <div class="col-md-6 mb-3">
+              <label>Nom</label>
+              <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="lastName" name="lastName"
+                required minlength="4" #lastNameVar="ngModel"
+                [ngClass]="{'is-invalid':lastNameVar.touched && !lastNameVar.valid }">
+              <div class="invalid-feedback">
+                <span *ngIf="lastNameVar.errors?.['required']">
+                  Entrez votre nom
+                </span>
+                <span *ngIf="lastNameVar.errors?.['minlength']">
+                  Minimum 4 caracteres
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3 text-white">
+              <label>Prenom</label>
+              <input type="text" class="form-control" placeholder="Prenom" required minlength="3" #firstNameVar="ngModel"
+                [ngClass]="{'is-invalid':firstNameVar.touched && !firstNameVar.valid }" [(ngModel)]="firstName"
+                name="firstName">
+              <div class="invalid-feedback">
+                <span *ngIf="firstNameVar.errors?.['required']">
+                  Entrez votre prenom
+                </span>
+                <span *ngIf="firstNameVar.errors?.['minlength']">
+                  Minimum 3 caracteres
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form row text-white">
+            <div class="col-md-6 mb-3">
+              <label>Email</label>
+              <input type="email" class="form-control" placeholder="Email" required email #emailVar="ngModel"
+                [ngClass]="{'is-invalid':emailVar.touched && !emailVar.valid }" [(ngModel)]="user.email" name="email">
+              <div class="invalid-feedback">
+                <span *ngIf="emailVar.errors?.['required']">
+                  Entrez votre email
+                </span>
+                <span *ngIf="emailVar.errors?.['email']">
+                  Email invalide
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label>Confirmer l'email</label>
+              <input type="email" class="form-control" placeholder="Confirmer l'email" required email #emailVar="ngModel"
+                [ngClass]="{'is-invalid':emailVar.touched && !emailVar.valid }" [(ngModel)]="user.email" name="email">
+              <div class="invalid-feedback">
+                <span *ngIf="emailVar.errors?.['required']">
+                  Confirmer l'email
+                </span>
+                <span *ngIf="emailVar.errors?.['email']">
+                  Cet email ne correspond pas au precedent
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row mb-3 text-white">
+            <div class="col-md-12">
+              <div class="form-check mt-4 pt-3">
+                <label for="sendCatalogId" class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="sendCatalog" [(ngModel)]="user.sendCatalog">
+                  Oui je souhaite renseigner plus d'informations
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="user.sendCatalog">
+
+            <div class="for-row mb-3 text-white">
+              <div class="col-md-12">
+                <label for="">Adresse 1</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="for-row mb-3 text-white">
+              <div class="col-md-12">
+                <label for="">Adresse 2</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="form row text-white">
+              <div class="col-md-3 mb-3">
+                <label for="">Ville</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="col-md-6 mb-3 text-white">
+                <label for="">Departement</label>
+                <select name="" id="" class="form-control">
+                  <option value="">Selectionner un departement</option>
+                  <option value="A">A</option>
+                  <option value="A">B</option>
+                  <option value="A">C</option>
+                  <option value="A">D</option>
+                </select>
+              </div>
+              <div class="col-md-3 mb-3 text-white">
+                <label for="">Code postal</label>
+                <input type="number" class="form-control">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="text-center text-white">
+            <button class="btn btn-info text-white" type="submit"  [disabled]="!registerForm.valid" [class.spinner]="loading" (click)="LoginUser()" >
+              Sauvegarder
+            </button>
+          </div>
+
+          <!-- <span class="material-icons im text-white p-2 rounded-circle btn"
+            style="background-color: black; align-items: center;" [class.spinner]="loading" (click)="Next()">
+            send
+          </span> -->
+
+        </form>
+      </div>
+    </div>
+
+</div>
+

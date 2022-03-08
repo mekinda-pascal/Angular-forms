@@ -1,0 +1,250 @@
+
+
+<!-- <div class="bd-example">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
+          xmlns="assets/img04.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+          aria-label="Placeholder: First slide">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First
+            slide</text>
+        </svg>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
+          xmlns="assets/img11.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+          aria-label="Placeholder: Second slide">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second
+            slide</text>
+        </svg>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
+          xmlns="assets/img14.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+          aria-label="Placeholder: Third slide">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third
+            slide</text>
+        </svg>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div> -->
+
+
+<!-- [showNavigationArrows]="True"
+[showNavigationIndicators]="True"
+[interval]="1000"
+[keyboard]="True" -->
+
+
+<!-- <div class="bd-example">
+  <div id="carouseldev" class="carousel slide" data-ride="carousel"> -->
+    <!-- Indicators -->
+    <!-- <ol class="carousel-indicators">
+      <li data-target="#carouseldev" data-slide-to="0" class="active"></li>
+      <li data-target="#carouseldev" data-slide-to="1" class=""></li>
+      <li data-target="#carouseldev" data-slide-to="2" class=""></li>
+    </ol> -->
+    <!-- Wrapper for slides -->
+    <!-- <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/img04.jpg" class="d-block w-100" width="800" height="400" alt="test 1">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img11.jpg" class="d-block w-100" width="800" height="400" alt="test 2">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img14.jpg" class="d-block w-100" width="800" height="400" alt="test 3">
+      </div>
+    </div> -->
+    <!-- Controls -->
+    <!-- <a class="carousel-control-prev" href="#carouseldev" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouseldev" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bg-gris">
+  <!--<img src="assets/img14.jpg" alt="background">-->
+  <hr>
+  <div class="card">
+  <div class="card-header text-white text-center bg-black">
+    <h5>S'enregistrer</h5>
+  </div>
+  <div class="card-body">
+    <form novalidate (ngSubmit)="saveData(registerForm)" #registerForm="ngForm">
+
+      <div class="form row text-white">
+        <div class="col-md-6 mb-3">
+          <label>Nom</label>
+          <input type="text" class="form-control" placeholder="Nom"
+          [(ngModel)]="user.lastName" name="lastName" required minlength="4"
+          #lastNameVar="ngModel" [ngClass]="{'is-invalid':lastNameVar.touched && !lastNameVar.valid }">
+          <div class="invalid-feedback">
+            <span *ngIf="lastNameVar.errors?.['required']">
+              Entrez votre nom
+            </span>
+            <span *ngIf="lastNameVar.errors?.['minlength']">
+              Minimum 4 caracteres
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3 text-white">
+          <label>Prenom</label>
+          <input type="text" class="form-control" placeholder="Prenom" required minlength="3"
+          #firstNameVar="ngModel" [ngClass]="{'is-invalid':firstNameVar.touched && !firstNameVar.valid }"
+          [(ngModel)]="user.firstName" name="firstName">
+          <div class="invalid-feedback">
+            <span *ngIf="firstNameVar.errors?.['required']">
+              Entrez votre prenom
+            </span>
+            <span *ngIf="firstNameVar.errors?.['minlength']">
+              Minimum 3 caracteres
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form row text-white">
+        <div class="col-md-6 mb-3">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="Email"  required email
+          #emailVar="ngModel" [ngClass]="{'is-invalid':emailVar.touched && !emailVar.valid }"
+          [(ngModel)]="user.email" name="email">
+          <div class="invalid-feedback">
+            <span *ngIf="emailVar.errors?.['required']">
+              Entrez votre email
+            </span>
+            <span *ngIf="emailVar.errors?.['email']">
+              Email invalide
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>Confirmer l'email</label>
+          <input type="email" class="form-control" placeholder="Confirmer l'email" required email #emailVar="ngModel"
+            [ngClass]="{'is-invalid':emailVar.touched && !emailVar.valid }" [(ngModel)]="user.email" name="email">
+          <div class="invalid-feedback">
+            <span *ngIf="emailVar.errors?.['required']">
+              Confirmer l'email
+            </span>
+            <span *ngIf="emailVar.errors?.['email']">
+              Cet email ne correspond pas au precedent
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row mb-3 text-white">
+        <div class="col-md-12">
+          <div class="form-check mt-4 pt-3">
+            <label for="sendCatalogId" class="form-check-label">
+              <input type="checkbox" class="form-check-input" name="sendCatalog" [(ngModel)]="user.sendCatalog">
+              Oui je souhaite renseigner plus d'informations
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="user.sendCatalog">
+
+        <div class="for-row mb-3 text-white">
+          <div class="col-md-12">
+            <label for="">Adresse 1</label>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+
+        <div class="for-row mb-3 text-white">
+          <div class="col-md-12">
+            <label for="">Adresse 2</label>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+
+        <div class="form row text-white">
+          <div class="col-md-3 mb-3">
+            <label for="">Ville</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-md-6 mb-3 text-white">
+            <label for="">Departement</label>
+            <select name="" id="" class="form-control">
+              <option value="">Selectionner un departement</option>
+              <option value="A">A</option>
+              <option value="A">B</option>
+              <option value="A">C</option>
+              <option value="A">D</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-3 text-white">
+            <label for="">Code postal</label>
+            <input type="number" class="form-control">
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="text-center text-white">
+        <button class="btn btn-info text-white" type="submit"
+        [disabled]="!registerForm.valid" (click)="Nav()">
+          Sauvegarder
+        </button>
+      </div>
+
+      <span class="material-icons im text-white p-2 rounded-circle btn" style="background-color: black; align-items: center;"
+        (click)="Next()">
+        send
+      </span>
+
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<p> Dirty: {{ registerForm.dirty }} </p>
+<p> Pristine: {{ registerForm.pristine }} </p>
+<p> Valid: {{ registerForm.valid }} </p>
+<p> Invalid: {{ registerForm.invalid }} </p>
+<p> Value: </p>
+<pre> {{ registerForm.value | json }} </pre>
+
+</div>

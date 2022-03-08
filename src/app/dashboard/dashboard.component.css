@@ -1,0 +1,111 @@
+mat-toolbar {
+  background: #87bcf8;
+  color: white;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #87bcf8;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+p {
+  color: black;
+  font-size: 15px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  text-align: justify;
+}
+
+h4 {
+  color: white;
+  font-style: italic;
+}
+
+h6 {
+  font-size: 13px;
+  font-style: italic;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.content {
+  /* height: calc(100vh - 98px); */
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  color: rgb(7, 7, 7);
+  border-radius: 10px;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  color: white;
+}
+
+.menu-button:mat-icon {
+  margin-right: 8px;
+}
+
+.name {
+  margin-top: 2px;
+  font-weight: normal;
+}
+
+.designation {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #87bcf8;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  border-top-color: #000000;
+  animation: spinner 0.8s linear infinite;
+}
+
+.loader-container {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+.spin {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  opacity: 0.8;
+  z-index: 99;
+}

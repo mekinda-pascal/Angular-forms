@@ -1,0 +1,67 @@
+
+
+
+
+<div class="container mt-5">
+  <div class="card" *ngIf="article">
+    <div class="card-header text-white bg-info">
+      {{ article.id }}
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-4">Id:</div>
+            <div class="col-md-8">{{ article.id }}</div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-4">Titre:</div>
+            <div class="col-md-8">{{ article.title }}</div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-4">Description:</div>
+            <div class="col-md-8">{{ article.body }}</div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <!-- <div class="col-md-4">Prix:</div>
+            <div class="col-md-8">
+              {{
+              hotel.price
+              | currency: "XAF":"symbol":"1.0":"fr"
+
+              }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">Note:</div>
+            <div class="col-md-8">
+              <app-star-rating [rating]="hotel.rating"></app-star-rating>
+            </div>
+          </div> -->
+        </div>
+
+        <!-- <div class="col-md-4">
+          <img [src]="hotel.imageUrl" [title]="hotel.hotelName | uppercase" [alt]="hotel.hotelName"
+            class="card-img-top" />
+        </div>
+      </div>
+    </div> -->
+
+    <div class="card-footer">
+      <button class="btn btn-outline-info d-flex" (click)="backToList()">
+        <span class="material-icons"> keyboard_arrow_left </span>
+        Retour à la liste
+      </button>
+    </div>
+  </div>
+</div>
