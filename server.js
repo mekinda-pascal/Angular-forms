@@ -7,7 +7,7 @@ const app = express();
 app.use(express.static(__dirname + "/dist/angular-forms"));
 
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(dirname + "/dist/angular-forms/login"));
+  res.sendFile(path.join(dirname + "/dist/angular-forms/login.component.html"));
 });
 
 app.listen(process.env.PORT || 3000);
